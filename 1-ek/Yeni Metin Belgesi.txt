@@ -1,0 +1,40 @@
+#include<iostream>
+#include<vector>
+#include "d_random.h"
+using namespace std;
+template<typename T>
+void writeVector(vector<T>&Va);
+
+int main()
+{
+    int a[]={ };
+    int b;
+    randomNumber rnd;
+    cout<<"Vektorun kac elemanli olacagini giriniz:";
+    cin>>b;
+    for(int i=0;i<b;i++)
+            a[i]=rnd.random(9);
+    vector<int>V(a,a+b);
+    writeVector(V);
+    writeVector2(V);
+    cout<<"\n";
+    system("pause");
+    return 0;
+}
+template<typename T>
+void writeVector(vector<T>&Va)
+{
+     for(int i=0;i<Va.size();i++)
+     cout<<" "<<Va[i];
+}
+template<typename T>
+void writeVector2(vector<T>&Vb)
+{
+     for(int i=0;i<Vb.size();i++)
+     for(int j=0;Vb.size()-i;j++)
+     if(Vb[i]==Vb[i+j])
+     Vb[i+j]=-1;
+     cout<<" "<<Vb[i];
+}
+      
+            
